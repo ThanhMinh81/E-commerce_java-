@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="Products"
+            type="com.example.appecommercephp.model.ProductsData" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="7dp"
+        android:layout_height="250dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content">
+
+           <RelativeLayout
+               android:id="@+id/layoutParent"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <ImageView
+                   android:src="@drawable/img"
+                   android:id="@+id/imageProduct"
+                   android:layout_width="200dp"
+                   android:layout_height="170dp"
+                   android:scaleType="center"
+                   app:imageUrl="@{Products.imageViewModels.get(0)}"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+               <ImageView
+                   android:id="@+id/icon_save"
+                   android:layout_alignParentEnd="true"
+                   android:src="@drawable/baseline_favorite_24"
+                   android:layout_width="50dp"
+                   android:layout_height="50dp"/>
+
+           </RelativeLayout>
+
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:text="@{Products.nameProduct}"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textColor="@color/red"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAlignment="center"
+                app:priceProduct="@{Products.priceProduct}"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</layout>

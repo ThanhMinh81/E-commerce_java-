@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <CheckBox
+            android:id="@+id/cbDienThoai"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:button="@color/white"
+            android:text="SmartPhone"
+            android:background="@drawable/checkbox_custom"
+            android:padding="15dp"
+            android:textColor="@drawable/custom_color_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <CheckBox
+            android:id="@+id/laptop"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:button="@color/white"
+            android:background="@drawable/checkbox_custom"
+            android:text="LapTop"
+            android:padding="15dp"
+            android:textColor="@drawable/custom_color_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:id="@+id/phukien"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:button="@color/white"
+            android:background="@drawable/checkbox_custom"
+            android:text="Phụ kiện"
+            android:padding="15dp"
+            android:textColor="@drawable/custom_color_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <CheckBox
+            android:id="@+id/smartwatch"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:button="@color/white"
+            android:background="@drawable/checkbox_custom"
+            android:text="Smart"
+            android:padding="15dp"
+            android:textColor="@drawable/custom_color_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

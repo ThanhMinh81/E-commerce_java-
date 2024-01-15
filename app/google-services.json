@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "449223614975",
+    "firebase_url": "https://banhangcustom-default-rtdb.firebaseio.com",
+    "project_id": "banhangcustom",
+    "storage_bucket": "banhangcustom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449223614975:android:7a41a2ccea603426af07ca",
+        "android_client_info": {
+          "package_name": "com.example.appecommercephp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449223614975-1m476qv3jrf7ktvj19s2dcr2959ckrjt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm95BbxpeMgkMKJlIMy-DuHduD8WBhnVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449223614975-1m476qv3jrf7ktvj19s2dcr2959ckrjt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449223614975:android:a30e19be9a57fc0caf07ca",
+        "android_client_info": {
+          "package_name": "com.example.banhangcustom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449223614975-1m476qv3jrf7ktvj19s2dcr2959ckrjt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm95BbxpeMgkMKJlIMy-DuHduD8WBhnVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449223614975-1m476qv3jrf7ktvj19s2dcr2959ckrjt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

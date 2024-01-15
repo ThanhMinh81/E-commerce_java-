@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="CartItem"
+            type="com.example.appecommercephp.model.ItemCartModel" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:elevation="10dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imagePayment"
+            android:layout_width="120dp"
+            app:imgUrl="@{CartItem.imgProduct}"
+            android:layout_height="120dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{CartItem.nameProduct}"
+                android:textColor="#27ae60"
+                android:maxLines="1"
+                android:textSize="20sp" />
+
+           <LinearLayout
+               android:orientation="horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <TextView
+                   android:text="Số lượng : "
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"/>
+
+               <TextView
+                   android:id="@+id/tvNam2e"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@{CartItem.cartQuantity}"
+                   android:textColor="#27ae60"
+                   android:textSize="20sp" />
+
+           </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Giá: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:priceProduct="@{String.valueOf(CartItem.cartPrice)}"
+                    android:textColor="#636e72"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:orientation="horizontal"
+                 android:layout_height="wrap_content">
+                  <TextView
+                      android:text="Tổng cộng :"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"/>
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     app:priceProduct="@{String.valueOf((Integer.parseInt(CartItem.cartPrice) * Integer.parseInt(CartItem.cartQuantity)))}"
+                     android:textColor="@color/black"
+                     android:textSize="18sp" />
+             </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

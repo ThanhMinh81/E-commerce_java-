@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="ProductData"
+            type="com.example.appecommercephp.model.ProductsData" />
+
+        <variable
+            name="DetailsViewModel"
+            type="com.example.appecommercephp.viewmodel.DetailsProductViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:background="#0984e3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+
+                    android:id="@+id/imgBack"
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:src="@drawable/baseline_arrow_back_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_marginLeft="10sp"
+                    android:id="@+id/tvNameSP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Chi tiết sản phẩm"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imgBack"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgFavorite"
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:onClick="@{(view) -> DetailsViewModel.updateListFavourite(DetailsViewModel.booleanObservableShowImage , String.valueOf(ProductData.getIdProduct()))}"
+                    android:src='@{DetailsViewModel.booleanObservableShowImage ? @drawable/baseline_favorite_24 : @drawable/baseline_favorite_border_24}'
+                    android:layout_marginRight="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_marginBottom="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="280dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.denzcoskun.imageslider.ImageSlider
+                            android:id="@+id/imageSlider"
+                            app:SliderDetails="@{ProductData.imageViewModels}"
+                            android:layout_width="match_parent"
+                            android:layout_height="280dp"
+                            app:iss_auto_cycle="true"
+                            app:iss_corner_radius="20"
+                            app:iss_delay="1000"
+                            app:iss_period="1000" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
+                        android:id="@+id/tvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:text="@{ProductData.nameProduct}"
+                        android:textAlignment="center"
+                        android:textColor="@color/red"
+                        android:textSize="22sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+                    <TextView
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="7dp"
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        app:priceProduct="@{ProductData.priceProduct}"
+                        android:textAlignment="center"
+                        android:textColor="#00b894"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+
+                    <TextView
+                        android:id="@+id/tvDescript"
+                        android:layout_marginTop="7dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{ProductData.descriptProduct}"
+                        android:textAlignment="textStart"
+                        android:textColor="#636e72"
+                        android:textSize="18sp"
+                        android:maxLines="4"
+                        android:ellipsize="end"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+                    <View
+                        android:id="@+id/tvview"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#636e72"
+                        app:layout_constraintTop_toBottomOf="@+id/tvDescript"
+                        tools:layout_editor_absoluteX="7dp" />
+
+                    <TextView
+                        android:id="@+id/xemthem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Xem thêm"
+                        android:textColor="#e17055"
+                        android:textSize="22sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvview" />
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/danhgiasp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đánh giá sản phẩm"
+                        android:textColor="@color/black"
+                        android:textSize="22sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/xemthem" />
+                    
+                     <LinearLayout
+                         android:gravity="center_vertical"
+                         android:id="@+id/layoutdanhgia"
+                         app:layout_constraintTop_toBottomOf="@id/danhgiasp"
+                         android:orientation="horizontal"
+                         android:layout_width="match_parent"
+                         android:layout_height="40dp">
+
+                         <RatingBar
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+
+                             android:numStars="4"
+                             android:scaleX="0.5"
+                             android:scaleY="0.5" />
+
+                         <TextView
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="3.5/4"
+                             android:textSize="20dp"
+                             android:textColor="@color/red"
+                             android:textStyle="normal" />
+
+                     </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:visibility="@{DetailsViewModel.getListComments().size() > 0 ? View.VISIBLE : View.GONE}"
+                        android:id="@+id/rcvCMT"
+                        app:listProductCMT="@{DetailsViewModel.getListComments()}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutdanhgia" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="end|bottom"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+
+                android:layout_height="50dp">
+
+                <LinearLayout
+                    android:id="@+id/chatShop"
+                    android:background="@drawable/border_button"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                     <ImageView
+                         android:src="@drawable/baseline_message_24"
+                         android:layout_width="20dp"
+                         android:layout_height="20dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chat"
+                        android:paddingRight="20dp"
+                        android:paddingLeft="20dp"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/mua"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/border_button"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/baseline_add_shopping_cart_24"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thêm vào giỏ hàng"
+                        android:textSize="20dp"
+                        android:textColor="@color/black"
+                        android:textStyle="normal" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/btnMuaNgay"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:background="#00b894"
+
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mua ngay"
+                        android:textSize="20dp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+</layout>
+

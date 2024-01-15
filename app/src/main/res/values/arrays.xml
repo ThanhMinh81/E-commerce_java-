@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="options">
+        <item>Đang chờ xác nhận</item>
+        <item>Đang xử lý</item>
+        <item>Đang giao hàng</item>
+        <item>Giao hàng thành công</item>
+        <!-- Thêm các mục lựa chọn khác nếu cần -->
+    </string-array>
+
+</resources>
